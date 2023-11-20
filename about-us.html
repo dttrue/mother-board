@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Products - The Motherboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" >
+    <script src="index.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <script src="src/products.js" defer></script>
-    <!-- Link to your CSS files, favicon, and other meta tags -->
+    <title>About Us - The Motherboard</title>
+    
 </head>
 <body>
     <div class="page-container">
-        <!-- Navigation Bar -->
         <header>
             <nav>
                 <div class="header__logo">
@@ -23,28 +23,42 @@
                     <li><a href="about-us.html">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <div class="header__search">
-                    <input type="text" id="product-search" placeholder="Search products...">
-                    <button class="search-button"><i class="fas fa-search"></i></button>
-                </div>
+               
                 <div class="header__cart">
                     <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
                 </div>
             </nav>
         </header>
 
-       
-        <!-- Products Section -->
+      
         <main class="content">
-            <section class="products">
-                <h1>Our Products</h1>
-                <div id="products-grid" class="products-grid">
-                    <!-- Products will be dynamically inserted here -->
+            <section class="about-us">
+                <h1>About The Motherboard</h1>
+                <img src="imgs/about-us.png" alt="About Us" class="about-us-image">
+                <div class="about-us-content">
+                    <h2>Our Story</h2>
+                    <p>
+                        Founded in 2023, The Motherboard started with a simple mission: to bring the best of technology 
+                        to our community. From the latest gadgets to reliable computer repairs, we've been at the 
+                        forefront of the digital revolution since day one.
+                    </p>
+
+                    <h2>What We Do</h2>
+                    <p>
+                        At The Motherboard, we offer a wide range of electronics, including smartphones, laptops, gaming 
+                        consoles, and more. Our knowledgeable staff is always ready to help you find what you need.
+                    </p>
+
+                    <h2>Our Commitment</h2>
+                    <p>
+                        We're committed to providing top-notch customer service and helping our customers stay connected 
+                        in this fast-paced digital world. Whether you're a tech enthusiast or just looking for the right 
+                        piece of equipment, we're here to make technology accessible and understandable for everyone.
+                    </p>
                 </div>
             </section>
         </main>
-        
-        <!-- Footer -->
+
         <footer class="footer">
             <div class="footer__social-media">
                 <a href="your-twitter-link" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -55,8 +69,5 @@
             <p class="footer__text">© 2023 The Motherboard. All rights reserved</p>
         </footer>
     </div>
-
-    <!-- JavaScript Files -->
-  
 </body>
 </html>

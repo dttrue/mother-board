@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js" defer></script>
+    <script src="./src/index.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="index.css" >
     <link rel="stylesheet" href="styles.css" >
     <title>Electronics Store</title>
     
@@ -12,56 +13,49 @@
 </head>
 <body>
     <div class="page-container">
-        <main class="content">
-            <header>
-                <div class='header'>
-                    <div class="header__logo">
-                        <i class="fa fa-store header__logoImage" aria-hidden="true"></i>
-                        <h2 class="header__logoTitle">THE MOTHERBOARD</h2>
-                    </div>
-                
-                    
-                    <div class="header__navLinks">
-                        <a href="index.html" class="nav__link">Home</a>
-                        <a href="products.html" class="nav__link">Products</a>
-                        <a href="cart.html" class="nav__link">Cart</a>
-                    </div>
-                
-                    <div class="header__search">
-                        <input type="text" class="header__searchInput" />
-                        <i class="fa fa-search header__searchIcon" aria-hidden="true"></i>
-                    </div>
-                
-                    <div class="header__nav">
-                        <div class="nav__item">
-                            <span class="nav__itemLineOne">Hello Guest</span>
-                            <span class="nav__itemLineTwo">Sign In</span>
-                        </div>
-                        <div class="nav__item">
-                            <span class="nav__itemLineOne">Your</span>
-                            <span class="nav__itemLineTwo">Shop</span>
-                        </div>
-                        <div class="nav__itemBasket">
-                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                            <span class="nav__itemLineTwo nav__basketCount">0</span>
-                        </div>
-                    </div>
+        <!-- Navigation Bar -->
+        <header>
+            <nav>
+                <div class="header__logo">
+                    <a href="index.html"><img src="imgs/logo.png" alt="The Motherboard Logo"></a>
                 </div>
-            </header>
-        
-            <div class="hero-container">
-                <img src="imgs/hero-img.png" alt="Hero Image">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <div class="header__cart">
+                    <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to The Motherboard</h1>
+                <p>Discover the latest in electronics, gadgets, and tech trends.</p>
+                <a href="products.html" class="btn-primary">Shop Now</a>
             </div>
-            
-            
-            <section id="newsletter">
-                <h2>Subscribe to our newsletter</h2>
-                <form autocomplete="newsletter-form" id="newsletter-form">
-                    <input type="email" id="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </section>
-        </main>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="featured-products">
+            <h2>Featured Products</h2>
+            <div id="featured-products-grid">
+                <!-- Featured products will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <h2>About The Motherboard</h2>
+            <p>Learn more about our mission, values, and the team behind the tech.</p>
+            <a href="about.html" class="btn-secondary">Learn More</a>
+        </section>
 
         <footer class="footer">
             <div class="footer__social-media">

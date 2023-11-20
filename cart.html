@@ -1,76 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="carts.js" defer></script>
-    <script src="index.js" defer></script>
-    <script src="products.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css" >
+    <script src="index.js" defer></script>
+    <script src="cart.js" defer></script>
+    <title>Cart - The Motherboard</title>
     
 </head>
 <body>
-    <div class='header'>
-        <div class="header__logo">
-            <i class="fa fa-store header__logoImage" aria-hidden="true"></i>
-            <h2 class="header__logoTitle">THE MOTHERBOARD</h2>
-        </div>
-    
-        
-        <div class="header__navLinks">
-            <a href="index.html" class="nav__link">Home</a>
-            <a href="products.html" class="nav__link">Products</a>
-            <a href="cart.html" class="nav__link">Cart</a>
-        </div>
-    
-        <div class="header__search">
-            <input type="text" class="header__searchInput" />
-            <i class="fa fa-search header__searchIcon" aria-hidden="true"></i>
-        </div>
-    
-        <div class="header__nav">
-            <div class="nav__item">
-                <span class="nav__itemLineOne">Hello Guest</span>
-                <span class="nav__itemLineTwo">Sign In</span>
+    <div class="page-container">
+        <header>
+            <div class='header'>
+                <div class="header__logo">
+                    <i class="fa fa-store header__logoImage" aria-hidden="true"></i>
+                    <h2 class="header__logoTitle">THE MOTHERBOARD</h2>
+                </div>
+            
+                
+                <div class="header__navLinks">
+                    <a href="index.html" class="nav__link">Home</a>
+                    <a href="about-us.html" class="nav__link">About us</a>
+                    <a href="blog.html" class="nav__link">Blog</a>
+                    <a href="cart.html" class="nav__link">Cart</a>
+                </div>
+            
+                <div class="header__search">
+                    <input type="text" class="header__searchInput" id="product-search" placeholder="Search products...">
+                    <i class="fa fa-search header__searchIcon" aria-hidden="true"></i>
+                </div>
+            
+                <div class="header__nav">
+                    <div class="nav__item">
+                        <span class="nav__itemLineOne">Hello Guest</span>
+                        <span class="nav__itemLineTwo">Sign In</span>
+                    </div>
+                    <div class="nav__item">
+                        <span class="nav__itemLineOne">Your</span>
+                        <span class="nav__itemLineTwo">Shop</span>
+                    </div>
+                    <div class="nav__itemBasket">
+                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        <span class="nav__itemLineTwo nav__basketCount">0</span>
+                    </div>
+                </div>
             </div>
-            <div class="nav__item">
-                <span class="nav__itemLineOne">Your</span>
-                <span class="nav__itemLineTwo">Shop</span>
+        </header>
+
+        <!-- Cart Section -->
+        <main class="content">
+            <section class="cart-items">
+                <h1>Your Cart</h1>
+                <div id="cart-container">
+                   
+                </div>
+                <div class="cart-summary">
+                    <p>Total: $<span id="cart-total">0.00</span></p>
+                    <button id="checkout-button">Checkout</button>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer__social-media">
+                <a href="your-twitter-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="your-facebook-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="your-instagram-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="your-linkedin-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            <div class="nav__itemBasket">
-                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                <span class="nav__itemLineTwo nav__basketCount">0</span>
-            </div>
-        </div>
+            <p class="footer__text">© 2023 The Motherboard. All rights reserved</p>
+        </footer>
     </div>
 
-    <main>
-        <h1>Your Shopping Cart</h1>
-        <div id="cart-items">
-            
-        </div>
-    
-        </div>
-        <div class="cart-total">
-            <span>Total:</span>
-            <span id="cart-total-amount">$0</span>
-        </div>
-        <button id="checkout-button">Checkout</button>
-
-        <section id="newsletter">
-            <h2>Subscribe to our newsletter</h2>
-            <form autocomplete="newsletter-form" id="newsletter-form">
-                <input type="email" id="email" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </section>
-
-    </main>
-    
-
-    <footer>
-    </footer>
-
-    
 </body>
+</html>
+
 </html>

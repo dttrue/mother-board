@@ -1,7 +1,11 @@
-const apiBaseUrl = 'https://fakestoreapi.com/carts';
+const apiBaseUrl = 'https://fakestoreapi.com/products/category/makeup';
 
-// Add item to cart
+
 function addItemToCart(item) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(item);
+    localStorage.setItem('cart', JSON.stringify(cart));    
+
     fetch(`${apiBaseUrl}/add`, {
         method: 'POST',
         headers: {
@@ -10,11 +14,12 @@ function addItemToCart(item) {
         body: JSON.stringify(item)
     })
     .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error adding item:', error));
+    .then(data => console.log('Server response:', data))
+    .catch(error => console.error('Error adding item to server cart:', error));
 }
 
-// Get cart items
+
+
 async function getCartItems() {
     try {
         const response = await fetch(`${apiBaseUrl}`);
@@ -25,29 +30,71 @@ async function getCartItems() {
     }
 }
 
-// Update item in cart
+
 function updateCartItem(itemId, updatedData) {
-    fetch(`${apiBaseUrl}/update/${itemId}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedData)
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error updating item:', error));
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const itemIndex = cart.findIndex(item => item.id === itemId);
+
+    if (itemIndex !== -1) {
+        cart[itemIndex] = updatedData;
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+
+        fetch(`${apiBaseUrl}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedData)
+        })
+        .then(response => response.json())
+        .then(data => console.log('Server response:', data))
+        .catch(error => console.error('Error updating server cart:', error));
+    }
 }
 
-// Remove item from cart
+
+
 function removeCartItem(itemId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(item => item.id !== itemId);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    
     fetch(`${apiBaseUrl}/remove/${itemId}`, {
         method: 'DELETE'
     })
     .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error removing item:', error));
+    .then(data => console.log('Server response:', data))
+    .catch(error => console.error('Error removing item from server cart:', error));
 }
 
-// Additional functionalities as needed...
+
+document.addEventListener('DOMContentLoaded', () => {
+    displayCartItems();
+});
+
+async function displayCartItems() {
+    const cartItems = await getCartItems(); // Await the async function call
+    const cartContainer = document.getElementById('cart-container');
+    cartContainer.innerHTML = ''; // Clear existing items
+
+    let total = 0;
+    cartItems.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart-item');
+        itemDiv.innerHTML = `
+            <img src="${item.image}" alt="${item.title}">
+            <p>${product.date}</p>
+            <p>Quantity: ${item.quantity}</p>
+            <p>Price: $${item.price}</p>
+            <button onclick="removeCartItem(${item.id})">Remove</button>
+        `;
+        cartContainer.appendChild(itemDiv);
+        total += item.price * item.quantity;
+    });
+
+    document.getElementById('cart-total').textContent = total.toFixed(2);
+}
+
 
