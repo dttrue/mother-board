@@ -18,11 +18,11 @@
 
 1. Clone  the Respository
 
-  git clone https://github.com/yourusername/themotherboard.git
+- git clone https://github.com/yourusername/themotherboard.git
 
 2. Navigate to the App Directory:
 
-  cd themotherboard
+- cd themotherboard
 
 
 # Usage 
